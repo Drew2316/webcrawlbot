@@ -152,14 +152,6 @@ def scrape_jobs():
             )
             posted_text = time_el.get_text(strip=True) if time_el else None
 
-            reposted_badges = card.select("span.tvm__text.tvm__text--positive")
-            is_reposted = any(
-                "reposted" in (badge.get_text(" ", strip=True).lower())
-                for badge in reposted_badges
-            )
-            if is_reposted:
-                posted_text = f"Reposted {posted_text or ''}".strip()
-
             # -----------------------
             # Job link
             # -----------------------
